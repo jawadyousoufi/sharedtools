@@ -11,4 +11,7 @@ node {
     stage("authenication") {
         sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 667457604412.dkr.ecr.us-east-1.amazonaws.com"
     }
+    stage("push") {
+        sh "docker push 667457604412.dkr.ecr.us-east-1.amazonaws.com/tools:latest"
+    }
 }
