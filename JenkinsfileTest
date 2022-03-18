@@ -3,6 +3,6 @@ properties([parameters([string(defaultValue: '667457604412', description: 'pleas
 
 node {
     stage("TestImage") {
-        sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 667457604412.dkr.ecr.us-east-1.amazonaws.com'
+        sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com'
         sh 'docker pull ${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/tools:latest'
             }
